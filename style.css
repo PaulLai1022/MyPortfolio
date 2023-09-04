@@ -149,3 +149,8 @@ header .follow a:hover{
     text-transform: uppercase;
     color: var(--main--color); 
 }
+
+.about .row-1{
+    display: flex; 
+    flex-wrap: wrap; 
+}
