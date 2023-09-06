@@ -198,3 +198,16 @@ header .follow a:hover{
 .about .row-1 .content .container .box>p:first-child{
     text-transform: lowercase;
 }
+
+#menu-bars{ /*id selector*/
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10000; 
+    background: var(--main--color);
+    color: #fff;
+    border-radius: 0.5 rem; 
+    padding: 1rem 1.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+} 
