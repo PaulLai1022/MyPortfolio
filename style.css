@@ -163,7 +163,7 @@ header .follow a:hover {
 }
 
 .about .row-1 .image {
-    width: 35rem;
+    flex: 1 1 25rem; 
 }
 
 .about .row-1 .content {
@@ -171,8 +171,8 @@ header .follow a:hover {
 }
 
 .about .row-1 .image img {
-    height: 23%;
-    /*?*/
+    height: 100%;
+    width: 100%; 
     object-fit: cover;
     border: 1rem solid #fff;
     border-radius: 0.5rem;
