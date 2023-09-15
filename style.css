@@ -12,7 +12,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all .2s linear;
     line-height: 1.5;
 }
@@ -68,7 +67,8 @@ header .navbar a {
     font-size: 2rem;
     color: #fff;
     margin: 0.2rem;
-
+    text-transform: capitalize;
+    line-height:5rem; 
 
 }
 
@@ -150,6 +150,12 @@ header .follow a:hover {
     text-transform: uppercase;
 }
 
+.about .heading2{
+    font-size: 2.7rem; 
+    text-transform: uppercase;
+    color: #111;
+}
+
 .about span {
     text-transform: uppercase;
     color: var(--main--color);
@@ -211,6 +217,7 @@ header .follow a:hover {
     flex-wrap: wrap; 
     gap: 1.5rem; 
     align-items: center; 
+    margin-bottom: 9rem;
 }
 
 .about .row-2 .skills{
@@ -260,8 +267,8 @@ header .follow a:hover {
 .about .row-2 .box-container{
     flex: 1 1 40rem;
     display: flex;
-     flex-wrap: wrap; 
-     gap: 1.5rem; 
+    flex-wrap: wrap; 
+    gap: 1.5rem; 
 }
 
 .about .row-2 .box-container .box{
@@ -283,6 +290,7 @@ header .follow a:hover {
     padding-top: 0.5rem; 
 }
 
+
 #menu-bars {
     /*id selector*/
     position: fixed;
@@ -298,11 +306,15 @@ header .follow a:hover {
     display: none;
 }
 
+.service{
+    margin-bottom: 9rem;
+}
+
 .service .box-container{
-    display: flex;
+    display: flex; 
     flex-wrap: wrap; 
     gap: 1.5rem; 
-    -width:50rem;
+
 }
 
 .service .box-container .box{
@@ -310,9 +322,10 @@ header .follow a:hover {
     text-align: center; 
     padding: 2rem; 
     background-color: #fff;
-    -border-radius: 0.5rem;
-    -box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border-radius: 0.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 } 
+
 
 .service .box-container .box i{
     height: 6rem;
@@ -328,7 +341,7 @@ header .follow a:hover {
     color: #444;
     font-size: 2.2rem;
     padding-top: 1rem;
-
+    text-transform: capitalize;
 }
 
 .service .box-container .box p{
@@ -348,6 +361,74 @@ header .follow a:hover {
     text-transform: uppercase;
     color: var(--main--color)
 }
+
+.experience .heading{
+    font-size: 4rem;
+    padding-bottom: 1rem;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.experience .heading span{
+    text-transform: uppercase;
+    color: var(--main--color)
+}
+
+.experience .box-container{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1.5rem; 
+}
+
+.experience .box-container .box{
+    position: relative;
+    flex: 1 1 33rem; 
+    border-left: .2rem solid var(--main--color);
+    padding-left: 2rem;
+    padding-right: 2rem; 
+    padding-bottom: 2rem; 
+}
+
+.experience .box-container .box::before{
+    content: ''; 
+    position: absolute; 
+    top: 0; left: -1rem; 
+    height: 2rem; 
+    width: 2rem; 
+    border-radius: 50%; 
+    background-color: var(--main--color);
+}
+
+.experience .box-container .box .content{
+    background: #fff; 
+    padding: 1.5rem; 
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border-radius: 0.5rem; 
+}
+
+.experience .box-container .box .content span{
+    color: #fff; 
+    font-size: 2rem; 
+    background: var(--main--color);
+    border-radius: 0.5rem; 
+    padding: .4rem 1rem; 
+}
+
+.experience .box-container .box .content h3{
+    font-size: 2.5rem; 
+    padding: 0.5rem 0; 
+    color: #111; 
+}
+
+.experience .box-container .box .content p{
+    font-size: 1.5rem; 
+    color: #666; 
+}
+
+
+
+
+
 
 /* media queries*/
 
@@ -380,5 +461,9 @@ header .follow a:hover {
 
     header {
         width: 100%;
+    }
+
+    .experience .box-container .box{
+        padding-left: 0;
     }
 }
