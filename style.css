@@ -425,8 +425,64 @@ header .follow a:hover {
     color: #666; 
 }
 
+.contact .icon-container{
+    display:flex; 
+    gap: 1.5rem; 
+    flex-wrap: wrap;
+}
 
+.contact .heading{
+    font-size: 4rem;
+    padding-bottom: 1rem;
+    color: #111;
+    text-transform: uppercase;
+}
 
+.contact .heading span{
+    text-transform: uppercase;
+    color: var(--main--color)
+}
+
+.contact .icon-container .icons{
+    flex: 1 1 25rem; 
+    text-align: center;
+    padding: 2rem; 
+    background-color: #fff; 
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+}
+
+.contact .icon-container .icons i{
+    height: 5rem; 
+    width: 5rem; 
+    line-height: 5rem; 
+    font-size: 2rem; 
+    background-color: var(--main--color);
+    color: #fff; 
+    border-radius: 50%; /* .5rem: 橢圓稜角處理 50%: 圓形 */
+}
+
+.contact .icon-container .icons a{
+    height: 5rem; 
+    width: 5rem; 
+    line-height: 5rem; 
+    font-size: 2rem; 
+    background-color: var(--main--color);
+    color: #111; 
+    border-radius: 50%; /* .5rem: 橢圓稜角處理 50%: 圓形 */
+}
+
+.contact .icon-container .icons h3{
+    color: #111; 
+    font-size: 2rem; 
+    padding: .5rem 0;
+}
+
+.contact .icon-container .icons p{
+    color: #666;
+    font-size: 1.7rem; 
+    padding: .5rem 0rem; 
+}
 
 
 
