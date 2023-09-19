@@ -468,8 +468,16 @@ header .follow a:hover {
     line-height: 5rem; 
     font-size: 2rem; 
     background-color: var(--main--color);
-    color: #111; 
+    color: white; 
     border-radius: 50%; /* .5rem: 橢圓稜角處理 50%: 圓形 */
+}
+
+.contact .icon-container .icons a:hover{
+    height: 5rem; 
+    width: 5rem; 
+    line-height: 5rem; 
+    font-size: 2rem; 
+    color: black; 
 }
 
 .contact .icon-container .icons h3{
@@ -483,6 +491,7 @@ header .follow a:hover {
     font-size: 1.7rem; 
     padding: .5rem 0rem; 
 }
+
 
 
 
