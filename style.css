@@ -425,6 +425,20 @@ header .follow a:hover {
     color: #666; 
 }
 
+.portfolio .heading{
+    font-size: 4rem;
+    padding-bottom: 1rem;
+    color: #111;
+    text-transform: uppercase; 
+}
+
+.portfolio .heading span{
+    text-transform: uppercase;
+    color: var(--main--color);
+}
+
+
+
 .contact .icon-container{
     display:flex; 
     gap: 1.5rem; 
