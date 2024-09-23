@@ -1,0 +1,57 @@
+body{
+    background: #e38528;
+}
+
+.form-area{
+    padding-top: 5%; 
+}
+
+.row.single-form{
+    box-shadow: 0 2px 20px -5px rgba(0,0,0,0.5);
+}
+
+.left{
+    background:#e38528;
+    padding: 220px 98px; 
+}
+
+.left h2{
+    font-family: poppins;
+    color: #fff;
+    font-weight: 700;
+    font-size: 48px; 
+}
+
+.right{
+     padding: 70px 100px; 
+    position: relative;
+}
+
+.right i{
+    position: absolute; 
+    font-size: 80px;
+    left: -27px; 
+    top: 40%;
+    color: #fff; 
+}
+
+.form-control{
+    border: 2px solid #000; 
+}
+
+.right button{
+    border: none;
+    border-radius:  0;
+    background: #252525;
+    width: 180px;
+    color: #fff; 
+    padding: 15px 0; 
+    display: inline-block;
+    font-size: 16px; 
+    margin-top: 20px;
+    cursor: pointer; 
+}
+
+.right button:hover{
+    background: #252525;  
+}
