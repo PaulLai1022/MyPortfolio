@@ -374,16 +374,67 @@ header .follow a:hover {
     color: var(--main--color)
 }
 
-.experience .box-container{
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 1.5rem; 
+
+.experience .box-container .box .card{
+    position: relative; 
+    width: 500px; 
+    height: 370px; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+    border-radius: 0.5rem; 
+    padding: 1.5rem;
+    background-color: #fff;
+
+
+
+
+ 
+}
+
+.experience .box-container .box .card:hover{
+    height: 530px;
+}
+
+.experience .box-container .box .card .insideText{
+    position: relative;
+    margin-top: 140px;
+    padding: 10px 15px;
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 0.3s ease-in-out;
+}
+
+.experience .box-container .box .card:hover .insideText{
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.3s; 
+}
+
+.experience .box-container .box .card .imgBox{
+    width: 450px;
+    height: 200px;
+
+    position: relative;
+
+    /*
+    transform: translateY(-20%);
+    */
+    margin: 0 auto;
+}
+
+.experience .box-container .box .card .imgBox img{
+    max-width: 100%;
+    border-radius: 4px; 
 }
 
 .experience .box-container .box{
     position: relative;
     flex: 1 1 33rem; 
-    border-left: .2rem solid var(--main--color);
+    margin-left: 50%;
+    border-left: 0.2rem solid var(--main--color);
     padding-left: 2rem;
     padding-right: 2rem; 
     padding-bottom: 2rem; 
@@ -399,31 +450,38 @@ header .follow a:hover {
     background-color: var(--main--color);
 }
 
+
+
 .experience .box-container .box .content{
     background: #fff; 
     padding: 1.5rem; 
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
     border-radius: 0.5rem; 
+    height: 300px;
+}
+.experience .box-container .box .card:nth-child(even){
+    margin-left: -115%;
 }
 
-.experience .box-container .box .content span{
+.experience .box-container .box .insideText span{
     color: #fff; 
     font-size: 2rem; 
     background: var(--main--color);
     border-radius: 0.5rem; 
     padding: .4rem 1rem; 
 }
-
-.experience .box-container .box .content h3{
+.experience .box-container .box .insideText h3{
     font-size: 2.5rem; 
     padding: 0.5rem 0; 
     color: #111; 
 }
 
-.experience .box-container .box .content p{
+.experience .box-container .box .insideText p{
     font-size: 1.5rem; 
     color: #666; 
 }
+
+
 
 .portfolio .heading{
     font-size: 4rem;
