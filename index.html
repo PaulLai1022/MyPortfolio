@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul's Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'
         target="_blank">
     <link rel="stylesheet" href='/style.css' target="_blank">
+
+
 </head>
 
 <body>
@@ -143,6 +146,47 @@
     <section class = 'service' id = 'service'>
         <h1 class = 'heading'><span>my </span>professions</h1>
 
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            
+            <div class = 'swiper-slide'> 
+                <i class = 'fas fa-code'></i>
+                <h3>web design</h3>
+                <p>My journey into the world of web engineering began with a curiosity for understanding how websites function and evolve. </p>
+            </div>
+
+            <div class = 'swiper-slide'> 
+                    <i class = 'fas fa-paint-brush'></i>
+                    <h3>ui design</h3>
+                    <p>I strive to create designs that not only look visually appealing but also enhance the overall user journey. </p>
+            </div>
+
+            <div class = 'swiper-slide'> 
+                <i class = 'fas fa-mobile'></i>
+                <h3>responsive design</h3>
+                <p>I believe in creating experiences that are not only visually stunning but also provide a seamless user journey, ensuring engagement and accessibility for all. </p>
+            </div>
+
+            <div class = 'swiper-slide'> 
+                <i class = 'fas fa-mobile'></i>
+                <h3>responsive design</h3>
+                <p>I believe in creating experiences that are not only visually stunning but also provide a seamless user journey, ensuring engagement and accessibility for all. </p>
+            </div>
+
+
+              <div class="swiper-slide">Slide 5</div>
+              <div class="swiper-slide">Slide 6</div>
+              <div class="swiper-slide">Slide 7</div>
+              <div class="swiper-slide">Slide 8</div>
+              <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+    </section>
+
+
+        <!--
         <div class = 'box-container'>
 
 
@@ -178,7 +222,9 @@
                     </p>
                 </div>
         </div>
-    </section>
+
+    -->
+
     <!--Service Section Ends-->
 
     <!-- Experience Section Starts-->
@@ -362,8 +408,24 @@
     </section>
 
     <!-- Contact Me Section ends-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
 
     <script src="/script.js"> </script>
+
+    <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 4,
+      centeredSlides: true,
+      spaceBetween: 30,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+    </script>
+
 </body>
 
 </html>
