@@ -417,7 +417,7 @@ header .follow a:hover {
 .experience .box-container .box .card {
     position: relative;
     width: 500px;
-    height: 370px;
+    height: 400px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     transition: 0.3s ease-in-out;
     border-radius: 0.5rem;
@@ -427,14 +427,14 @@ header .follow a:hover {
 }
 
 .experience .box-container .box .card:hover {
-    height: 530px;
+    height: 550px;
 }
 
 .experience .box-container .box .card .insideText {
     position: relative;
-    margin-top: 140px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     text-align: center;
+
 
     visibility: hidden;
     opacity: 0;
@@ -450,18 +450,26 @@ header .follow a:hover {
 
 .experience .box-container .box .card .imgBox {
     width: 450px;
-    height: 200px;
+    max-height: 400px;
 
-    position: relative;
-    /*
-    transform: translateY(-20%);
-    */
+    position: relative; 
     margin: 0 auto;
+
+    /*
+    position: relative;
+
+    transform: translateY(-20%);
+   
+    margin: 0 auto;
+     */
 }
 
 .experience .box-container .box .card .imgBox img {
+    position: relative; 
     max-width: 100%;
     border-radius: 4px;
+    max-height: 350px;
+    margin: 0 auto;
 }
 
 .experience .box-container .box {
@@ -498,6 +506,7 @@ header .follow a:hover {
 .experience .box-container .box .card:nth-child(even) {
     margin-left: -115%;
 }
+
 
 .experience .box-container .box .insideText span {
     color: #fff;
