@@ -373,13 +373,16 @@ header .follow a:hover {
 .swiper {
     width: 100%;
     height: 100%;
+    margin-top: 9rem;
+
 }
 
 .swiper-slide {
 
+
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -528,6 +531,7 @@ header .follow a:hover {
 }
 
 
+/*
 
 .portfolio .heading {
     font-size: 4rem;
@@ -540,6 +544,8 @@ header .follow a:hover {
     text-transform: uppercase;
     color: var(--main--color);
 }
+
+*/
 
 
 
@@ -668,7 +674,7 @@ header .follow a:hover {
 }
 
 .wrapper .button:nth-child(1):hover .icon{
-    background: #4267B2;
+    background: #E1306C;
 }
 
 .wrapper .button:nth-child(2):hover .icon{
@@ -676,7 +682,7 @@ header .follow a:hover {
 }
 
 .wrapper .button:nth-child(3):hover .icon{
-    background: #E1306C;
+    background: #333;
 }
 
 
