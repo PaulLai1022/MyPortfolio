@@ -3,6 +3,8 @@ let header = document.querySelector('header');
 
 let card1 = document.getElementById("card1");
 
+let insideText1 = document.getElementById("insideText1");
+
 menu.onclick = () => {
     menu.classList.toggle('fa-times');
     header.classList.toggle('active');
@@ -33,6 +35,34 @@ window.addEventListener("scroll",()=>{
         console.log("cardTop"+cardPosition.top);
         console.log("cardBotton:" + cardPosition.bottom);
     }
+
    
+
+})
+
+card1.addEventListener("mouseout",()=>{
+    console.log("click");
+    const scrollHeight = insideText1.scrollHeight;
+    console.log(scrollHeight);
+
+    if(card1.classList.contains("expand")){
+        console.log("card expanded");
+        insideText1.style.height = 0;
+        card1.classList.remove("expand");
+    }
+
+
+})
+
+card1.addEventListener("mouseenter",()=>{
+    console.log("click");
+    const scrollHeight = insideText1.scrollHeight;
+    console.log(scrollHeight);
+
+    if(!card1.classList.contains("expand")){
+        console.log("card not expanded")
+        insideText1.style.height = `${scrollHeight}px`;
+        card1.classList.add("expand");
+    }
 
 })
