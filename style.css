@@ -381,7 +381,7 @@ header .follow a:hover {
 
 
     text-align: center;
-    font-size: 18px;
+
     background: white;
     display: flex;
     justify-content: center;
@@ -403,7 +403,28 @@ header .follow a:hover {
 
 }
 
+.service .icon{
 
+}
+
+
+.service .icon i{
+    font-size: 80px;
+}
+
+.service .swiper-slide h3{
+
+
+}
+
+.service .swiper-slide p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit the text to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
 .experience .heading {
     font-size: 4rem;
     padding-bottom: 1rem;
