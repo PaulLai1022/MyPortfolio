@@ -222,6 +222,7 @@ header .follow a:hover {
 
 .about .row-2 .skills {
     flex: 1 1 40rem;
+
 }
 
 .about .row-2 .skills .progress {
@@ -272,6 +273,7 @@ header .follow a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
+    margin-left: 2.5rem;
 }
 
 .about .row-2 .box-container .box {

@@ -17,33 +17,30 @@ menu.onscroll = () =>{
 
 
 
-window.addEventListener("scroll",()=>{
-    const viewPortHeight = window.innerHeight;
- 
-    const cardPosition = card1.getBoundingClientRect();
+// window.addEventListener("scroll", () => {
+//     const viewPortHeight = window.innerHeight;
 
-    // console.log(cardPosition);
-    
-    // console.log(`test:${cardPosition.top+cardPosition.height/2}`);
-    // console.log("windows height: " + window.innerHeight);
-    // console.log("cardBotton:" + cardPosition.bottom);
+//     for (let i = 0; i < cards.length; i++) {
+//         const cardPosition = cards[i].getBoundingClientRect();
 
-    if(cardPosition.top+cardPosition.height/2 < viewPortHeight && cardPosition.bottom > 0){
-        // console.log("windows height: " + window.innerHeight);
-        // console.log(cardPosition);
-        
-        // console.log("cardTop"+cardPosition.top);
-        // console.log("cardBotton:" + cardPosition.bottom);
+//         // Check if the card is within the viewport
+//         if (cardPosition.top + cardPosition.height / 2 < viewPortHeight && cardPosition.bottom > 0) {
+//             // Expand the card if it's not already expanded
+//             if (!cards[i].classList.contains("expand")) {
+//                 const scrollHeight = insideText[i].scrollHeight;
+//                 insideText[i].style.height = `${scrollHeight}px`;
+//                 cards[i].classList.add("expand");
+//             }
+//         } else {
+//             // Collapse the card if it's expanded and no longer in the viewport
+//             if (cards[i].classList.contains("expand")) {
+//                 insideText[i].style.height = "0";
+//                 cards[i].classList.remove("expand");
+//             }
+//         }
+//     }
+// });
 
-        const scrollHeight = insideText[0].scrollHeight;
-
-
-    
-    }
-
-   
-
-})
 
 
 
