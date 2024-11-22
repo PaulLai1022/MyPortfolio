@@ -453,7 +453,8 @@ header .follow a:hover {
 
 }
 
- .experience .box-container .box .card:hover {
+
+.experience .box-container .box .card:hover {
     height: auto;
 }  
 
@@ -464,8 +465,6 @@ header .follow a:hover {
     text-align: center;
     overflow: hidden;
 
-    /* display:none; */
-    opacity: 1;
 
     transition: height 0.3s ease-in-out;
 }

@@ -1,9 +1,9 @@
 let menu = document.querySelector('#menu-bars');
 let header = document.querySelector('header');
+let cards = document.querySelectorAll('.card');
+let insideText = document.querySelectorAll('.insideText');
 
-let card1 = document.getElementById("card1");
 
-let insideText1 = document.getElementById("insideText1");
 
 menu.onclick = () => {
     menu.classList.toggle('fa-times');
@@ -29,40 +29,46 @@ window.addEventListener("scroll",()=>{
     // console.log("cardBotton:" + cardPosition.bottom);
 
     if(cardPosition.top+cardPosition.height/2 < viewPortHeight && cardPosition.bottom > 0){
-        console.log("windows height: " + window.innerHeight);
-        console.log(cardPosition);
+        // console.log("windows height: " + window.innerHeight);
+        // console.log(cardPosition);
         
-        console.log("cardTop"+cardPosition.top);
-        console.log("cardBotton:" + cardPosition.bottom);
+        // console.log("cardTop"+cardPosition.top);
+        // console.log("cardBotton:" + cardPosition.bottom);
+
+        const scrollHeight = insideText[0].scrollHeight;
+
+
+    
     }
 
    
 
 })
 
-card1.addEventListener("mouseout",()=>{
-    console.log("click");
-    const scrollHeight = insideText1.scrollHeight;
-    console.log(scrollHeight);
-
-    if(card1.classList.contains("expand")){
-        console.log("card expanded");
-        insideText1.style.height = 0;
-        card1.classList.remove("expand");
-    }
 
 
-})
 
-card1.addEventListener("mouseenter",()=>{
-    console.log("click");
-    const scrollHeight = insideText1.scrollHeight;
-    console.log(scrollHeight);
 
-    if(!card1.classList.contains("expand")){
-        console.log("card not expanded")
-        insideText1.style.height = `${scrollHeight}px`;
-        card1.classList.add("expand");
-    }
+for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("mouseenter",()=>{
+        const scrollHeight = insideText[i].scrollHeight;
+    
+        if(!cards[i].classList.contains("expand")){
+            insideText[i].style.height = `${scrollHeight}px`;
+            cards[i].classList.add("expand");
+        }
+    
+    })
 
-})
+    cards[i].addEventListener("mouseleave",()=>{
+        const scrollHeight = insideText[i].scrollHeight;
+
+        if(cards[i].classList.contains("expand")){
+            insideText[i].style.height = 0;
+            cards[i].classList.remove("expand");
+        }
+    
+    })
+}
+
+
