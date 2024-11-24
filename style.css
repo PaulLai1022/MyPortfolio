@@ -24,7 +24,7 @@ html {
 
 section {
     padding: 1rem 5%;
-    min-height: 100vh;
+    min-height: 30vh;
 }
 
 body {
@@ -265,7 +265,7 @@ header .follow a:hover {
 }
 
 .about .row-2 .skills .progress:nth-child(4) .bar span {
-    width: 85%;
+    width: 90%;
 }
 
 .about .row-2 .box-container {
@@ -740,6 +740,96 @@ header .follow a:hover {
     header.active {
         left: 0%;
     }
+
+    .about .row-1 {
+        flex-direction: column;
+        
+    }
+
+    .about .row-1 .image img {
+        width: 100%;
+     
+    }
+
+    /* my skills card padding change */
+
+    .box-container{
+    
+
+    }
+
+    .experience .box-container .box{
+
+
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+
+    
+    }
+
+    .experience .box-container .box .card{
+
+        /* position: relative;
+        width: 500px;
+        height: 380px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease-in-out;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        background-color: #fff;
+    
+        overflow: hidden; */
+
+        width: 90%;
+
+        margin-left: 30px;
+
+
+
+
+    
+    }
+
+    .experience .box-container .box .card:nth-child(even) {
+
+        margin-left: 30px;
+
+        
+    }
+
+    .imgBox{
+        width: 100%;
+       
+    
+        position: relative; 
+        margin: 0 auto;
+    
+        /*
+        position: relative;
+    
+        transform: translateY(-20%);
+       
+        margin: 0 auto;
+         */
+    }
+    
+    .imgBox img {
+        height: 370px;
+        object-fit: cover;
+        position: relative; 
+        max-width: 100%;
+        border-radius: 4px;
+        max-height: 350px;
+        margin: 0 auto;
+        
+    }
+    
+
+
+
 }
 
 @media(max-width:450px) {
