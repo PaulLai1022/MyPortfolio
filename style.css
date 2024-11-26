@@ -27,6 +27,12 @@ section {
     min-height: 30vh;
 }
 
+section.contact {
+    /* Styles for the contact section */
+    height: 65vh; /* Example: full viewport height */
+
+}
+
 body {
     background: #fcf2e8;
     padding-left: 30rem;
@@ -382,41 +388,57 @@ header .follow a:hover {
 .swiper-slide {
 
 
-    text-align: center;
+    /* text-align: center; */
 
     background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    width: 400px;
-    height: 400px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     flex-direction: column;
 
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 
-    border-radius: 0.5rem;
+    border-radius: 10px;
+    padding: 30px 20px;
 
 
 }
 
-.service .icon{
+.swiper-slide i{
 
+    font-size: 55px;
+    color: var(--main--color);
+/* 
+    display:flex;
+    justify-content: center;
+    align-items: center; */
+
+    
+    
+    
+}
+
+.swiper-slide h2{
+    font-size: 25px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+
+    color: var(--main--color);
 }
 
 
-.service .icon i{
-    font-size: 80px;
+.service  i{
+    font-size: 60px;
 }
 
-.service .swiper-slide h3{
-
-
+.service  p{
+    margin: 10px 0 18px;
+    font-size: 1.3rem;
 }
 
 .service .swiper-slide p{
@@ -441,6 +463,8 @@ header .follow a:hover {
 
 
 .experience .box-container .box .card {
+
+    grid-column: span 1;
 
     position: relative;
     width: 500px;
@@ -507,8 +531,11 @@ header .follow a:hover {
 
 .experience .box-container .box {
     position: relative;
-    flex: 1 1 33rem;
-    margin-left: 50%;
+    /* flex: 1 1 33rem; */
+    /* margin-left: 50%; */
+    display:grid;
+    grid-template-columns: 4fr 1fr 4fr;
+
     border-left: 0.2rem solid var(--main--color);
     padding-left: 2rem;
     padding-right: 2rem;
@@ -536,9 +563,9 @@ header .follow a:hover {
     height: 300px;
 }
 
-.experience .box-container .box .card:nth-child(even) {
+/* .experience .box-container .box .card:nth-child(even) {
     margin-left: -115%;
-}
+} */
 
 
 .experience .box-container .box .insideText span {
@@ -752,36 +779,22 @@ header .follow a:hover {
     }
 
     /* my skills card padding change */
-
-    .box-container{
-    
-
+    .about .row-2 .box-container {
+        margin-left: 0;
+        
     }
 
+    
     .experience .box-container .box{
 
 
         margin-left: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-
 
     
     }
 
     .experience .box-container .box .card{
 
-        /* position: relative;
-        width: 500px;
-        height: 380px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        transition: 0.3s ease-in-out;
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        background-color: #fff;
-    
-        overflow: hidden; */
 
         width: 90%;
 
@@ -843,5 +856,10 @@ header .follow a:hover {
 
     .experience .box-container .box {
         padding-left: 0;
+    }
+
+    .about .row-2 .box-container {
+        margin-left: 0;
+        
     }
 }
