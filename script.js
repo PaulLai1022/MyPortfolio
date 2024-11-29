@@ -10,7 +10,7 @@ menu.onclick = () => {
     header.classList.toggle('active');
 }
 
-menu.onscroll = () =>{
+menu.onscroll = () => {
     menu.classList.remove('fa-times');
     header.classList.remove('active');
 }
@@ -41,31 +41,80 @@ menu.onscroll = () =>{
 //     }
 // });
 
+var swiper = new Swiper(".mySwiper", {
 
 
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    spaceBetween: 30,
+    slidesPerView: 1,
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 
-
-
-for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseenter",()=>{
-        const scrollHeight = insideText[i].scrollHeight;
-    
-        if(!cards[i].classList.contains("expand")){
-            insideText[i].style.height = `${scrollHeight}px`;
-            cards[i].classList.add("expand");
+    breakpoints: {
+        640: {
+            slidesPerView: 3,
         }
-    
-    })
+    }
 
-    cards[i].addEventListener("mouseleave",()=>{
-        const scrollHeight = insideText[i].scrollHeight;
+});
 
-        if(cards[i].classList.contains("expand")){
-            insideText[i].style.height = 0;
-            cards[i].classList.remove("expand");
-        }
-    
-    })
+
+window.embeddedChatbotConfig = {
+    chatbotId: "ruz-riTxjh4cV7ZSzO08a",
+    domain: "www.chatbase.co"
 }
+
+
+var typed = new Typed(".auto-type", {
+    strings:
+        ["a motivated Computer Science student with hands-on front-end development experience.",
+            "passionate about creating user-focused digital solutions.",
+            "thrive to learn new technologies, integrating AI to enhance user experiences."],
+    typeSpeed: 50,
+    backSpeed: 20,
+    loop: true,
+})
+
+
+
+
+
+
+
+
+// for (let i = 0; i < cards.length; i++) {
+//     cards[i].addEventListener("mouseenter", () => {
+//         const scrollHeight = insideText[i].scrollHeight;
+
+//         if (!cards[i].classList.contains("expand")) {
+//             insideText[i].style.height = `${scrollHeight}px`;
+//             cards[i].classList.add("expand");
+//         }
+
+//     })
+
+//     cards[i].addEventListener("mouseleave", () => {
+//         const scrollHeight = insideText[i].scrollHeight;
+
+//         if (cards[i].classList.contains("expand")) {
+//             insideText[i].style.height = 0;
+//             cards[i].classList.remove("expand");
+//         }
+
+//     })
+// }
 
 
