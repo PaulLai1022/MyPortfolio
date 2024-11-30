@@ -2,7 +2,13 @@ let menu = document.querySelector('#menu-bars');
 let header = document.querySelector('header');
 let cards = document.querySelectorAll('.card');
 let insideText = document.querySelectorAll('.insideText');
+let closeBtn = document.getElementById("closeBtn");
+let modal = document.querySelector('.modal');
 
+closeBtn.addEventListener("click",()=>{
+    
+    modal.classList.add('hide');
+})
 
 
 menu.onclick = () => {
