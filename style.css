@@ -458,6 +458,15 @@ header .follow a:hover {
 
 }
 
+.readMore{
+    padding:5px;
+    background-color: var(--main--color);
+    border-radius: 5px;
+    color:white;
+    font-weight:bold;
+}
+
+
 .modal {
     position: fixed;
     top: 0;
@@ -467,6 +476,18 @@ header .follow a:hover {
     z-index: 1000;
 
 }
+
+.readMoreInfo{
+    text-align: center;
+ 
+}
+
+.infoImage{
+    height: 100px;
+}
+
+
+
 
 .hide {
     display: none;
@@ -499,20 +520,39 @@ header .follow a:hover {
 .jumpCard {
 
     background-color: white;
-    height: 200px;
+    height: 300px;
     width: 35%;
     z-index: 1500;
     position: relative;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
+    overflow: scroll;
+
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 
 }
 
-.closeBtnContainer{
+.box-hidden{
+    opacity: 0;
+}
+
+
+ /* .closeBtnContainer{
+    height: 10px;
     width:100%;
     display:flex;
     justify-content: end;
     
+} */
+
+#closeBtn{
+    
+    position: absolute;
+    right: 10px;
+    top:10px;
 }
 
 .swiper-slide h2 {
@@ -585,10 +625,14 @@ header .follow a:hover {
 
 .experience .container.left {
     left: 0;
+
 }
+
+
 
 .experience .container.right {
     left: 50%;
+    /* top:-100px; */
 }
 
 .experience .container.left::before {
@@ -634,10 +678,22 @@ header .follow a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
+.experience .container.left .content:hover .insideText p{
+
+    color: #ffffffd7;
+}
+
+.experience .container.right .content:hover .insideText p{
+
+    color: #ffffffd7;
+}
+
+
 .experience .container.right .content:hover{
     background-color: #e38528; /* Highlight color */
     transform: scale(1.02); /* Slight zoom effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    color: #ffffffd7;
 }
 
 /* Circle at the timeline */
@@ -660,7 +716,7 @@ header .follow a:hover {
 
 .imgBox img {
     width: 100%;
-    height: auto ;
+    height: 200px ;
     object-fit: cover;
     border-radius: 0.5rem;
 }
@@ -975,7 +1031,7 @@ header .follow a:hover {
     }
 
     .imgBox img {
-        height: 370px;
+        height: 170px;
         object-fit: cover;
         position: relative;
         max-width: 100%;

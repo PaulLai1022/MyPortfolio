@@ -21,19 +21,24 @@
         <div class="filter">
             <div class="jumpCard">
 
-                <div class="closeBtnContainer">
-                    <img src="close.svg" alt="" width="28px" id="closeBtn">
-                </div>
+                    <img src="close.svg" alt="" width="28px" id="closeBtn" height = "28px">
 
-                hello world
+                <div id = "readMoreModal">
+                    <!-- <div class = "readMoreInfo">
+                        <img src="ExperiencePic/KINOYUME.jpg" alt="" class = "infoImage">
+                        <p>
+                            hello world kinotume
+                        </p>
+                    </div> -->
+                </div> 
+
             </div>
         </div>
         <div class="filter-background">
 
         </div>
-
-
     </div>
+
 
 
 
@@ -139,7 +144,7 @@
             <div class='box-container'>
                 <div class='box'>
                     <h3>UCSD</h3>
-                    <p>Computer Science Major</p>
+                    <p>Computer Science</p>
                 </div>
                 <div class='box'>
                     <h3> 2+</h3>
@@ -148,14 +153,6 @@
                 <div class='box'>
                     <h3> 1+</h3>
                     <p>years of ui-ux experience</p>
-                </div>
-                <div class='box'>
-                    <h3>1</h3>
-                    <p>year of back-end experience</p>
-                </div>
-                <div class='box'>
-                    <h3>Plenty</h3>
-                    <p>of web projects completed</p>
                 </div>
 
 
@@ -172,7 +169,6 @@
 
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-
                 <div class='swiper-slide'>
 
                     <i class='fas fa-code'></i>
@@ -180,6 +176,8 @@
                     <h2>Web Development</h2>
                     <p>My journey into the world of web engineering began with a curiosity for understanding how
                         websites function and evolve. </p>
+
+                        <button class = "readMore" id = "readMore1" onclick="readMore(this)">Read More</button>
                 </div>
 
                 <div class='swiper-slide'>
@@ -189,6 +187,8 @@
                     <h2>Ui Design</h2>
                     <p>I strive to create designs that not only look visually appealing but also enhance the overall
                         user journey. </p>
+
+                        <button class = "readMore" id = "readMore2" onclick="readMore(this)" >Read More</button>
                 </div>
 
                 <div class='swiper-slide'>
@@ -200,21 +200,23 @@
                     <p>I believe in creating experiences that are not only visually stunning but also provide a
                         seamless
                         user journey, ensuring engagement and accessibility for all. </p>
+
+                        <button class = "readMore" id = "readMore3" onclick="readMore(this)">Read More</button>
                 </div>
 
-                <div class='swiper-slide'>
-
+                <!-- <div class='swiper-slide'>
 
                     <i class='fas fa-chart-line '></i>
 
-                    <h2>Digital Marketing</h2>
+                    <h2>User Experience Centered</h2>
                     <p>Throughout my academic pursuits and practical projects, I have gained expertise in various
                         facets
                         of digital
                         marketing, including social media management, search engine optimization, content creation,
                         and
                         data analysis.</p>
-                </div>
+                        <button class = "readMore" id = "readMore4">Read More</button>
+                </div> -->
 
             </div>
             <div class="swiper-button-next"></div>
@@ -232,19 +234,16 @@
 
         <div class="timeline">
             <div class="container left">
-                <a href="https://sushikinoyume.github.io/KINOYUME-desktop/" class="card-link" target="_blank">
+                <a href="https://sushikinoyume.github.io/KINOYUME/" class="card-link" target="_blank">
                     <div class="content">
                         <div class="imgBox">
                             <img src="/ExperiencePic/KINOYUME.jpg" alt="Experience Image 1" />
                         </div>
                         <div class="insideText">
                             <span>2024-2025</span>
-                            <h3>San Diego Restaurant's Website</h3>
+                            <h3>KINOYUME Restaurant's Website</h3>
                             <p>
-                                Assisted a local restaurant in building a website featuring
-                                operational details, an interactive menu, and online ordering
-                                functionality, enhancing customer engagement and streamlining
-                                the ordering process.
+                                Showcasing self-designed and coded projects with dynamic interfaces, responsive layouts, and interactive features, highlighting creativity and technical expertise while delivering functional and visually engaging web solutions.
                             </p>
                         </div>
                     </div>
@@ -252,26 +251,23 @@
             </div>
 
             <div class="container right">
+                <a href="https://codepen.io/PaulLai1022" class="card-link" target="_blank">
                 <div class="content">
                     <div class="imgBox">
-                        <img src="/ExperiencePic/YILE.jpg" alt="Experience Image 2" />
+                        <img src="/ExperiencePic/Codepen.png" alt="Experience Image 2" />
                     </div>
                     <div class="insideText">
-                        <span>2021-2022</span>
-                        <h3>Yile Technology Intern</h3>
+                        <span>2024 - Current</span>
+                        <h3>Codepen design/code practice</h3>
                         <p>
-                            Product Management Intern in Taiwan, contributing to the
-                            development of a social media product by leveraging agile
-                            methodologies to adapt to the US market. Optimized product
-                            features and strategies, created detailed documentation
-                            including user stories, roadmaps, and feature specifications,
-                            driving alignment and enhancing product development.
+                            Showcasing my creative and functional web projects, highlighting dynamic designs, interactive features, and responsive layouts.
                         </p>
                     </div>
                 </div>
+            </a>
             </div>
 
-            <div class="container left">
+            <div class="container left" >
                 <div class="content">
                     <div class="imgBox">
                         <img src="/ExperiencePic/slot.png" alt="Experience Image 3" />
@@ -280,28 +276,25 @@
                         <span>2021-2022</span>
                         <h3>Slot Machine Project</h3>
                         <p>
-                            Developed a slot machine application using C#, including
-                            front-end design, animations, and algorithms for slot icon
-                            mechanics. Gained foundational knowledge in data science to
-                            analyze customer preferences and inform business strategies.
-                            Acquired insights into the routine processes of software
-                            companies and honed problem-solving and organizational skills.
+                            Created a slot machine application in C#, integrating front-end design, animations, and slot icon algorithms. Applied data science techniques to analyze user preferences, enhancing business strategies while improving problem-solving and organizational skills.
                         </p>
                     </div>
                 </div>
             </div>
 
+            
+
             <div class="container right">
                 <a href="https://ucsdces.com/" class="card-link" target="_blank">
                     <div class="content">
                         <div class="imgBox">
-                            <img src="/ExperiencePic/KINOYUME.jpg" alt="Experience Image 1" />
+                            <img src="/ExperiencePic/ces.jpg" alt="Experience Image 1" />
                         </div>
                         <div class="insideText">
                             <span>2022-2023</span>
                             <h3>CES Student Org React Website</h3>
                             <p>
-                                Building a basic React website framework for school's engineering student club. 
+                                Developed a React-based website framework for a school's engineering student club, featuring a clean structure, interactive components, and responsive design to streamline communication and showcase club activities.
 
                             </p>
                         </div>
@@ -309,7 +302,7 @@
                 </a>
             </div>
 
-            <div class="container left">
+            <!-- <div class="container left">
                 <a href="https://ucsdces.com/" class="card-link" target="_blank">
                     <div class="content">
                         <div class="imgBox">
@@ -325,7 +318,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> -->
 
             
 

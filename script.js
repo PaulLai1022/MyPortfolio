@@ -4,9 +4,37 @@ let cards = document.querySelectorAll('.card');
 let insideText = document.querySelectorAll('.insideText');
 let closeBtn = document.getElementById("closeBtn");
 let modal = document.querySelector('.modal');
+let readMoreBtn = document.querySelectorAll('.readMore');
+let readMoreModal = document.getElementById("readMoreModal")
 
-closeBtn.addEventListener("click",()=>{
-    
+const readMoreData = {
+    readMore1: [{
+        text: "progress1-1",
+        image: "ExperiencePic/KINOYUME.jpg"
+    }, {
+        text: "progres1-2",
+        image: "ExperiencePic/slot.png"
+    }], readMore2: [
+        {
+            text: "progress2-1",
+            image: "ExperiencePic/KINOYUME.jpg"
+        }, {
+            text: "progress2-2",
+            image: "ExperiencePic/slot.png"
+        }
+    ], readMore3: [
+        {
+            text: "progress3-1",
+            image: "ExperiencePic/KINOYUME.jpg"
+        }, {
+            text: "progress3-2",
+            image: "ExperiencePic/slot.png"
+        }
+    ]
+}
+
+closeBtn.addEventListener("click", () => {
+
     modal.classList.add('hide');
 })
 
@@ -21,6 +49,28 @@ menu.onscroll = () => {
     header.classList.remove('active');
 }
 
+function readMore(button) {
+    const buttonId = button.id;
+    const data = readMoreData[buttonId];
+    console.log(data);
+    readMoreModal.innerHTML = data.map((d)=>{
+        return `<div class = "readMoreInfo">
+        <img src="${d.image}" alt="" class = "infoImage">
+        <p>
+            ${d.text}
+        </p>
+    </div>`
+    }).join("");
+
+    modal.classList.remove('hide');
+
+}
+// readMoreBtn.forEach(function(button){
+
+//     button.addEventListener("onclick",()=>{
+//         console.log(this.id);
+//     })
+// }) 
 
 
 // window.addEventListener("scroll", () => {
