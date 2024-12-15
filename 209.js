@@ -1,120 +1,123 @@
-// 要操作的元素
 const audio = document.querySelector('audio');
 const cvs = document.querySelector('canvas');
 const ctx = cvs.getContext('2d');
-let audioCloseBtn = document.getElementById("audioCloseBtn");
-// let audioController = document.querySelector('.audioController');
-let audioContainer = document.querySelector(".audioContainer");
+const audioCloseBtn = document.getElementById("audioCloseBtn");
+const audioContainer = document.querySelector(".audioContainer");
 
-// 初始化画布
+let isShrunk = true; // Track canvas state
+let isInit = false; // Track audio initialization
+let analyser, dataArray;
+
+// Initialize canvas
 function initCvs() {
+    const aspectRatio = window.innerWidth / (window.innerHeight / 2);
     cvs.width = window.innerWidth * devicePixelRatio;
     cvs.height = (window.innerHeight / 2) * devicePixelRatio;
 }
 
 initCvs();
 
-let isShrunk = true; // State to track whether the canvas is shrunk
+audio.volume = 0.5; // Set initial volume
 
-audio.volume = 0.3; // Set initial volume to 50%
 
+// Shrink canvas
 audioCloseBtn.addEventListener("click", () => {
-    // Shrink the canvas
-    audio.classList.add("shrinkController");
-    cvs.classList.add("shrink");
-    audioContainer.classList.add("audioContainerShrink")
-    isShrunk = true;
-
-    // Adjust canvas resolution after the animation
-    setTimeout(() => {
-        const displayWidth = window.innerWidth * 0.1; // 20% of viewport width
-        const displayHeight = window.innerHeight * 0.1; // 20vh of viewport height
-        cvs.width = displayWidth * devicePixelRatio; // Adjust for pixel ratio
-        cvs.height = displayHeight * devicePixelRatio;
-
-        ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the resized canvas
-    }, 500); // Wait for the CSS animation to complete
+    shrinkCanvas();
 });
 
-// Add click event on the canvas to expand it back
+// Expand canvas on click
 cvs.addEventListener("click", () => {
     if (isShrunk) {
-        // Expand the canvas
-        
-        cvs.classList.remove("shrink");
-        audio.classList.remove("shrinkController");
-        audioContainer.classList.remove("audioContainerShrink")
-        aud
-        isShrunk = false;
-
-        // Adjust canvas resolution after the animation
-        setTimeout(() => {
-            const displayWidth = window.innerWidth; // Full width of viewport
-            const displayHeight = window.innerHeight; // Full height of viewport
-            cvs.width = displayWidth * devicePixelRatio; // Adjust for pixel ratio
-            cvs.height = displayHeight * devicePixelRatio;
-
-            ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the resized canvas
-        }, 500); // Wait for the CSS animation to complete
+        expandCanvas();
     }
 });
 
+// Shrink canvas logic
+function shrinkCanvas() {
+    audio.classList.add("shrinkController");
+    cvs.classList.add("shrink");
+    audioContainer.classList.add("audioContainerShrink");
+    audioCloseBtn.classList.add("closeShrink");
+    isShrunk = true;
 
-let isInit = false;
+    setTimeout(() => {
+        resizeCanvas(0.1, 0.1); // Shrink to 10% width and height
+    }, 500); // Wait for CSS animation
+}
 
-let dataArray;
+// Expand canvas logic
+function expandCanvas() {
+    cvs.classList.remove("shrink");
+    audio.classList.remove("shrinkController");
+    audioContainer.classList.remove("audioContainerShrink");
+    audioCloseBtn.classList.remove("closeShrink");
+    isShrunk = false;
 
-let analyser;
+    setTimeout(() => {
+        resizeCanvas(1, 0.5); // Expand to full width and half height
+    }, 500); // Wait for CSS animation
+}
 
+// Resize canvas utility function
+function resizeCanvas(widthFactor, heightFactor) {
+    const displayWidth = window.innerWidth * widthFactor;
+    const displayHeight = window.innerHeight * heightFactor;
+
+    cvs.width = displayWidth * devicePixelRatio;
+    cvs.height = displayHeight * devicePixelRatio;
+
+    ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear canvas
+}
+
+// Initialize audio context and analyser
 audio.onplay = function () {
+    if (isInit) return;
 
-    if (isInit) {
-        return;
+    try {
+        const audioCtx = new AudioContext();
+        const source = audioCtx.createMediaElementSource(audio);
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 512;
+        dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+
+        isInit = true;
+
+        // Resume AudioContext if suspended (for autoplay policies)
+        document.addEventListener("click", () => {
+            if (audioCtx.state === "suspended") {
+                audioCtx.resume();
+            }
+        });
+    } catch (error) {
+        console.error("Web Audio API not supported:", error);
     }
-
-
-    const audioCtx = new AudioContext();
-
-    const source = audioCtx.createMediaElementSource(audio);
-
-    analyser = audioCtx.createAnalyser();
-    analyser.fftSize = 512;
-
-    dataArray = new Uint8Array(analyser.frequencyBinCount);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-
-
-    isInit = true;
 };
 
-
+// Draw visualization
 function draw() {
-
     requestAnimationFrame(draw);
-
 
     const { width, height } = cvs;
     ctx.clearRect(0, 0, width, height);
-    if (!isInit) {
-        return;
-    }
+    if (!isInit) return;
 
     analyser.getByteFrequencyData(dataArray);
-    const len = dataArray.length / 2; 
-    const barWidth = width / len / 2; 
-    ctx.fillStyle = '#e0f9b5';
+    const len = dataArray.length / 2; // Use only the lower half frequencies
+    const barWidth = width / len / 2; // Adjust bar width
+    ctx.fillStyle = "#e0f9b5";
 
     for (let i = 0; i < len; i++) {
-        
         const data = dataArray[i];
-        const barHeight = (data / 255) * height; 
-        const x1 = i * barWidth + width / 2;
-        const x2 = width / 2 - (i + 1) * barWidth; 
-        const y = height - barHeight; 
+        const barHeight = (data / 255) * height;
+        const x1 = i * barWidth + width / 2; // Right bars
+        const x2 = width / 2 - (i + 1) * barWidth; // Left bars
+        const y = height - barHeight;
+
         ctx.fillRect(x1, y, barWidth - 2, barHeight);
-        ctx.fillRect(x2, y, barWidth - 2, barHeight); 
-        console.log(barHeight);
+        ctx.fillRect(x2, y, barWidth - 2, barHeight);
     }
 }
 

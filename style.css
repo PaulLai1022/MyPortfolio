@@ -995,6 +995,10 @@ audio:hover {
     margin-top: 150px;
 }
 
+.closeShrink{
+    display:none;
+}
+
 
 .shrinkController{
     height: 20px !important;
