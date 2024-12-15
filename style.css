@@ -891,6 +891,7 @@ header .follow a:hover {
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-out;
+
 }
 
 .contact .wrapper .button:hover {
@@ -906,6 +907,7 @@ header .follow a:hover {
     box-sizing: border-box;
     line-height: 60px;
     transition: all 0.3s ease-out;
+    color:black
 }
 
 .contact .wrapper .button .icon i {
@@ -924,6 +926,7 @@ header .follow a:hover {
     line-height: 60px;
     margin-left: 10px;
     transition: all 0.3s ease-out;
+    color: #111;
 }
 
 .wrapper .button:nth-child(1):hover .icon {
