@@ -1,72 +1,120 @@
 // 要操作的元素
-const audio=document.querySelector('audio');
-const cvs=document.querySelector('canvas');
-const ctx=cvs.getContext('2d');
+const audio = document.querySelector('audio');
+const cvs = document.querySelector('canvas');
+const ctx = cvs.getContext('2d');
+let audioCloseBtn = document.getElementById("audioCloseBtn");
+// let audioController = document.querySelector('.audioController');
+let audioContainer = document.querySelector(".audioContainer");
 
 // 初始化画布
-function initCvs(){
-    cvs.width=window.innerWidth * devicePixelRatio;
-    cvs.height=(window.innerHeight / 2) * devicePixelRatio;
+function initCvs() {
+    cvs.width = window.innerWidth * devicePixelRatio;
+    cvs.height = (window.innerHeight / 2) * devicePixelRatio;
 }
 
 initCvs();
 
+let isShrunk = true; // State to track whether the canvas is shrunk
 
-// 是否已初始化
-let isInit=false;
-// 数组，用于接收分析器节点的分析数据
+audio.volume = 0.3; // Set initial volume to 50%
+
+audioCloseBtn.addEventListener("click", () => {
+    // Shrink the canvas
+    audio.classList.add("shrinkController");
+    cvs.classList.add("shrink");
+    audioContainer.classList.add("audioContainerShrink")
+    isShrunk = true;
+
+    // Adjust canvas resolution after the animation
+    setTimeout(() => {
+        const displayWidth = window.innerWidth * 0.1; // 20% of viewport width
+        const displayHeight = window.innerHeight * 0.1; // 20vh of viewport height
+        cvs.width = displayWidth * devicePixelRatio; // Adjust for pixel ratio
+        cvs.height = displayHeight * devicePixelRatio;
+
+        ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the resized canvas
+    }, 500); // Wait for the CSS animation to complete
+});
+
+// Add click event on the canvas to expand it back
+cvs.addEventListener("click", () => {
+    if (isShrunk) {
+        // Expand the canvas
+        
+        cvs.classList.remove("shrink");
+        audio.classList.remove("shrinkController");
+        audioContainer.classList.remove("audioContainerShrink")
+        aud
+        isShrunk = false;
+
+        // Adjust canvas resolution after the animation
+        setTimeout(() => {
+            const displayWidth = window.innerWidth; // Full width of viewport
+            const displayHeight = window.innerHeight; // Full height of viewport
+            cvs.width = displayWidth * devicePixelRatio; // Adjust for pixel ratio
+            cvs.height = displayHeight * devicePixelRatio;
+
+            ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the resized canvas
+        }, 500); // Wait for the CSS animation to complete
+    }
+});
+
+
+let isInit = false;
+
 let dataArray;
-// 分析器节点
+
 let analyser;
-// 音频播放事件
-audio.onplay=function(){
-    // 判断是否初始化
-    if(isInit){
+
+audio.onplay = function () {
+
+    if (isInit) {
         return;
     }
 
-    // 开始初始化
-    // 创建音频上下文
-    const audioCtx=new AudioContext();
-    // 创建音频源节点
-    const source=audioCtx.createMediaElementSource(audio);
-    // 创建分析器节点
-    analyser=audioCtx.createAnalyser();
-    analyser.fftSize=512;
-    // 接收分析器节点的分析数据
-    dataArray=new Uint8Array(analyser.frequencyBinCount);
+
+    const audioCtx = new AudioContext();
+
+    const source = audioCtx.createMediaElementSource(audio);
+
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 512;
+
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
 
-    // 已初始化
-    isInit=true;
-}
 
-// 把分析出来的波形绘制到canvas上
-function draw(){
-    // 逐帧绘制
+    isInit = true;
+};
+
+
+function draw() {
+
     requestAnimationFrame(draw);
 
-    // 接下来清空画布
+
     const { width, height } = cvs;
-    ctx.clearRect(0,0,width,height);
-    if(!isInit){
+    ctx.clearRect(0, 0, width, height);
+    if (!isInit) {
         return;
     }
-    // 让分析器节点分析出数据到数组中
+
     analyser.getByteFrequencyData(dataArray);
-    const len=dataArray.length / 2; //条的数量，取一半，前半部分（低频范围就好，高频部分人耳几乎听不到，看不到波形）
-    const barWidth=width / len / 2; //条的宽度
-    ctx.fillStyle='#e0f9b5';
-    // 循环绘制
-    for(let i=0;i<len;i++){
-        const data=dataArray[i];
-        const barHeight=(data / 255) * height; //条的高度
-        const x1=i * barWidth + width / 2; //右边区域中条的x坐标
-        const x2=width / 2 - (i + 1) * barWidth; //左边区域中条的x坐标 镜像
-        const y=height - barHeight; //条的y坐标
-        ctx.fillRect(x1,y,barWidth - 2,barHeight); //填充右边区域
-        ctx.fillRect(x2,y,barWidth - 2,barHeight); //填充左边区域
+    const len = dataArray.length / 2; 
+    const barWidth = width / len / 2; 
+    ctx.fillStyle = '#e0f9b5';
+
+    for (let i = 0; i < len; i++) {
+        
+        const data = dataArray[i];
+        const barHeight = (data / 255) * height; 
+        const x1 = i * barWidth + width / 2;
+        const x2 = width / 2 - (i + 1) * barWidth; 
+        const y = height - barHeight; 
+        ctx.fillRect(x1, y, barWidth - 2, barHeight);
+        ctx.fillRect(x2, y, barWidth - 2, barHeight); 
+        console.log(barHeight);
     }
 }
 

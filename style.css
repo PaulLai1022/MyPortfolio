@@ -938,6 +938,72 @@ header .follow a:hover {
     background: #333;
 }
 
+/* audio section canvas* start/
+
+/* Canvas element styling */
+canvas {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    transition: width 0.5s ease, height 0.5s ease, border 0.5s ease; /* Smooth transitions */
+    border: none; /* No border for expanded state */
+    background-color: black;
+}
+
+canvas.shrink {
+    width: 10%;
+    height: 10vh;
+    border: 2px solid #e38528; /* Border only in the shrunk state */
+    border-radius: 10px; /* Optional rounded corners for the shrunk state */
+  
+    
+}
+
+
+/* Audio element styling */
+audio {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    opacity: 0.15;
+    transition: opacity 0.5s;
+    cursor: pointer; /* Indicates interactivity */
+}
+
+/* Hover effect for audio */
+audio:hover {
+    opacity: 1;
+}
+
+#audioCloseBtn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer; /* Adds pointer cursor for usability */
+}
+
+.audioContainer{
+    position:fixed;
+    top: 0px;
+    left: 0;
+    z-index: 15000;
+    width: 100%;
+
+}
+
+.audioContainerShrink{
+    margin-top: 150px;
+}
+
+
+.shrinkController{
+    height: 20px !important;
+    width: 150px !important;
+    margin-top: 30px;
+}
+
+
+/* audio section canvas* end/
 
 
 
