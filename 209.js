@@ -15,9 +15,14 @@ function initCvs() {
     cvs.height = (window.innerHeight / 2) * devicePixelRatio;
 }
 
+
 initCvs();
 
 audio.volume = 0.5; // Set initial volume
+
+document.addEventListener("click",()=>{
+    audio.play();
+})
 
 
 // Shrink canvas
