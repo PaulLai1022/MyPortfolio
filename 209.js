@@ -54,6 +54,9 @@ cvs.addEventListener("click", () => {
 });
 
 musicSection.addEventListener("click", () => {
+    if(audio.play() == false){
+        audio.play();
+    }
     if (isShrunk) {
         expandCanvas();
     }
