@@ -20,9 +20,24 @@ initCvs();
 
 audio.volume = 0.5; // Set initial volume
 
-document.addEventListener("click",()=>{
-    audio.play();
-})
+audio.play().catch(() => {
+    console.log('Autoplay blocked. Waiting for user interaction.');
+
+    // Listen for user interaction to start playback
+    const startAudio = () => {
+        audio.play().then(() => {
+            console.log('Audio started after user interaction!');
+            document.removeEventListener('click', startAudio); // Remove listener
+        }).catch(error => {
+            console.error('Error playing audio:', error);
+        });
+    };
+
+    document.addEventListener('click', startAudio, { once: true });
+});
+
+
+
 
 
 // Shrink canvas
