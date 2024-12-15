@@ -3,6 +3,7 @@ const cvs = document.querySelector('canvas');
 const ctx = cvs.getContext('2d');
 const audioCloseBtn = document.getElementById("audioCloseBtn");
 const audioContainer = document.querySelector(".audioContainer");
+let musicSection = document.getElementById("musicSection")
 
 let isShrunk = true; // Track canvas state
 let isInit = false; // Track audio initialization
@@ -47,6 +48,12 @@ audioCloseBtn.addEventListener("click", () => {
 
 // Expand canvas on click
 cvs.addEventListener("click", () => {
+    if (isShrunk) {
+        expandCanvas();
+    }
+});
+
+musicSection.addEventListener("click", () => {
     if (isShrunk) {
         expandCanvas();
     }

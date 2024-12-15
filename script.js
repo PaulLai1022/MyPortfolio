@@ -7,6 +7,7 @@ let modal = document.querySelector('.modal');
 let readMoreBtn = document.querySelectorAll('.readMore');
 let readMoreModal = document.getElementById("readMoreModal")
 
+
 const readMoreData = {
     readMore1: [{
         text: "progress1-1",
@@ -38,6 +39,9 @@ closeBtn.addEventListener("click", () => {
     modal.classList.add('hide');
 })
 
+musicSection.addEventListener("click",()=>{
+    
+})
 
 menu.onclick = () => {
     menu.classList.toggle('fa-times');
