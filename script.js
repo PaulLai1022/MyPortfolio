@@ -4,43 +4,35 @@ let cards = document.querySelectorAll('.card');
 let insideText = document.querySelectorAll('.insideText');
 let closeBtn = document.getElementById("audioCloseBtn");
 let modal = document.querySelector('.modal');
+let modalCloseBtn = document.getElementById('closeBtn');
+
 let readMoreBtn = document.querySelectorAll('.readMore');
 let readMoreModal = document.getElementById("readMoreModal")
-
+let testCard = document.getElementById("testCard")
+let modalInfo = document.getElementById("modalInfo")
+let modalDes = document.getElementById("modalDes")
+let modalTitle = document.getElementById("modalTitle")
+let modalPic = document.getElementById("modalPic")
+let modalLink = document.getElementById("modalLink")
 
 const readMoreData = {
-    readMore1: [{
-        text: "progress1-1",
-        image: "ExperiencePic/KINOYUME.jpg"
-    }, {
-        text: "progres1-2",
-        image: "ExperiencePic/slot.png"
-    }], readMore2: [
-        {
-            text: "progress2-1",
-            image: "ExperiencePic/KINOYUME.jpg"
-        }, {
-            text: "progress2-2",
-            image: "ExperiencePic/slot.png"
-        }
-    ], readMore3: [
-        {
-            text: "progress3-1",
-            image: "ExperiencePic/KINOYUME.jpg"
-        }, {
-            text: "progress3-2",
-            image: "ExperiencePic/slot.png"
-        }
-    ]
+    lightUp: {
+        title: "LightUp App Launch",
+        descriptions: ["Business Consultant", "Eliminating Physical Presence Bias", "Test Server Promotion and Management"],
+        imageSrc: "ExperiencePic/slot.png",
+        link: "https://www.instagram.com/paullai1022/"
+    }
+
 }
 
-closeBtn.addEventListener("click", () => {
+
+modalCloseBtn.addEventListener("click", () => {
 
     modal.classList.add('hide');
 })
 
-musicSection.addEventListener("click",()=>{
-    
+musicSection.addEventListener("click", () => {
+
 })
 
 menu.onclick = () => {
@@ -57,7 +49,7 @@ function readMore(button) {
     const buttonId = button.id;
     const data = readMoreData[buttonId];
     console.log(data);
-    readMoreModal.innerHTML = data.map((d)=>{
+    readMoreModal.innerHTML = data.map((d) => {
         return `<div class = "readMoreInfo">
         <img src="${d.image}" alt="" class = "infoImage">
         <p>
@@ -178,3 +170,12 @@ var typed = new Typed(".auto-type", {
 // }
 
 
+testCard.addEventListener("click", () => {
+    modal.classList.remove("hide");
+    console.log(modalInfo)
+    const data = readMoreData["lightUp"]
+    modalTitle.innerText = `${data.title}`
+    modalDes.innerHTML = data.descriptions.map((d) => `<li>${d}</li>`).join("")
+    modalPic.innerHTML = `<img src="${data.imageSrc}"/>`
+    modalLink.innerHTML = `<a href="${data.link}" class="modalLink">Visit the site</a>`
+})
